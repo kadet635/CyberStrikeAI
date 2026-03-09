@@ -1749,12 +1749,13 @@ async function loadConversations(searchQuery = '') {
         const sidebarContent = listContainer.closest('.sidebar-content');
         const savedScrollTop = sidebarContent ? sidebarContent.scrollTop : 0;
 
-        const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;">暂无历史对话</div>';
+        const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;" data-i18n="chat.noHistoryConversations"></div>';
         listContainer.innerHTML = '';
 
         // 如果响应不是200，显示空状态（友好处理，不显示错误）
         if (!response.ok) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
 
@@ -1762,6 +1763,7 @@ async function loadConversations(searchQuery = '') {
 
         if (!Array.isArray(conversations) || conversations.length === 0) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
 
@@ -1827,6 +1829,7 @@ async function loadConversations(searchQuery = '') {
 
         if (!rendered) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
 
@@ -1845,8 +1848,9 @@ async function loadConversations(searchQuery = '') {
         // 错误时显示空状态，而不是错误提示（更友好的用户体验）
         const listContainer = document.getElementById('conversations-list');
         if (listContainer) {
-            const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;">暂无历史对话</div>';
+            const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;" data-i18n="chat.noHistoryConversations"></div>';
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
         }
     }
 }
@@ -3994,12 +3998,13 @@ async function loadConversationsWithGroups(searchQuery = '') {
         const sidebarContent = listContainer.closest('.sidebar-content');
         const savedScrollTop = sidebarContent ? sidebarContent.scrollTop : 0;
 
-        const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;">暂无历史对话</div>';
+        const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;" data-i18n="chat.noHistoryConversations"></div>';
         listContainer.innerHTML = '';
 
         // 如果响应不是200，显示空状态（友好处理，不显示错误）
         if (!response.ok) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
 
@@ -4007,6 +4012,7 @@ async function loadConversationsWithGroups(searchQuery = '') {
 
         if (!Array.isArray(conversations) || conversations.length === 0) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
         
@@ -4068,6 +4074,7 @@ async function loadConversationsWithGroups(searchQuery = '') {
 
         if (fragment.children.length === 0) {
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
             return;
         }
 
@@ -4086,8 +4093,9 @@ async function loadConversationsWithGroups(searchQuery = '') {
         // 错误时显示空状态，而不是错误提示（更友好的用户体验）
         const listContainer = document.getElementById('conversations-list');
         if (listContainer) {
-            const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;">暂无历史对话</div>';
+            const emptyStateHtml = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem;" data-i18n="chat.noHistoryConversations"></div>';
             listContainer.innerHTML = emptyStateHtml;
+            if (typeof window.applyTranslations === 'function') window.applyTranslations(listContainer);
         }
     }
 }

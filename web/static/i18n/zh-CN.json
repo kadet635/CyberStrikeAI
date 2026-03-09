@@ -122,6 +122,7 @@
     "copyMessageTitle": "复制消息内容",
     "emptyGroupConversations": "该分组暂无对话",
     "noMatchingConversationsInGroup": "未找到匹配的对话",
+    "noHistoryConversations": "暂无历史对话",
     "renameGroupPrompt": "请输入新名称：",
     "deleteGroupConfirm": "确定要删除此分组吗？分组中的对话不会被删除，但会从分组中移除。",
     "deleteConversationConfirm": "确定要删除此对话吗？",
