@@ -1,5 +1,8 @@
 name: "dalfox"
 command: "dalfox"
+# dalfox v2+ 使用子命令，单目标模式为 `dalfox url <target>`，不再支持根级的 -u
+args:
+  - "url"
 enabled: true
 short_description: "高级XSS漏洞扫描器"
 description: |
@@ -19,10 +22,12 @@ description: |
 parameters:
   - name: "url"
     type: "string"
-    description: "目标URL"
+    description: |
+      目标URL。dalfox 单目标模式为子命令 url，此处作为 url 后的第一个位置参数传入。
+      示例等价 CLI：dalfox url "http://target/page?q=test"
     required: true
-    flag: "-u"
-    format: "flag"
+    position: 0
+    format: "positional"
   - name: "pipe_mode"
     type: "bool"
     description: "使用管道模式输入"
